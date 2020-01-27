@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import './App.css';
+
+
+class App extends Component {
+
+  constructor(props) {
+    super(props) 
+  this.state = {
+    name:"gerar",
+    email:"araujo.mtiago@gmail.com"
+  }
+  
+this.changeState = this.changeState.bind(this)
+this.resetState = this.resetState.bind(this)
+this.changeInput = this.changeInput.bind(this)
+
+}
+
+changeState () {
+  this.setState({
+    name:"Login"
+  })
+}
+
+
+resetState () {
+  this.setState ({
+    name: "limpar"
+  })
+}
+
+  changeInput(event){
+    let target = event.target
+    let index = target.name
+    this.setState({
+          [index]:target.value
+    })
+  }
+render() {
+  return (
+    <div className="App">
+    <div>
+        <form>
+          <label> Nome
+          <input
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.changeInput}
+            ></input>
+            </label>
+
+            </form>
+
+            <form>
+          <label> Email
+          <input
+            type="text"
+            name="email"
+            value={this.state.email}
+               onChange={this.changeInput}
+               ></input>
+            </label>
+
+            </form>
+
+      {this.state.name} - {this.state.email}
+    </div>
+      <button onClick={this.changeState}>next</button>
+      <button onClick={this.resetState}>next</button>
+  </div>
+  );
+}
+
+}
+export default App;
+
+
